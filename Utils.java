@@ -10,6 +10,7 @@ import org.joda.time.LocalTime;
 import org.joda.time.Seconds;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+import org.slf4j.helpers.MessageFormatter;
 
 import com.dilax.mobile.enumeration.WeekDay;
 import com.google.common.base.Joiner;
@@ -23,6 +24,30 @@ public class Utils {
     private static String DATE_FORMAT = "ddMMYY";
 
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormat.forPattern(DATE_FORMAT);
+
+    public static String format(final String message, final Object... objects) {
+        return MessageFormatter.arrayFormat(message, objects).getMessage();
+    }
+
+    public static Integer sum(final Integer... terms) {
+        Integer sum = 0;
+        for (Integer term : terms) {
+            sum += term;
+        }
+        return sum;
+    }
+
+    public static Double sum(final Double... terms) {
+        Double sum = 0D;
+        for (Double term : terms) {
+            sum += term;
+        }
+        return sum;
+    }
+
+    public static String crop(final String string, final int newLength) {
+        return string.substring(0, Math.min(newLength, string.length()));
+    }
 
     /**
      * The first and the second period must not be ordered. If they have at least one day in common, true is returned. 
