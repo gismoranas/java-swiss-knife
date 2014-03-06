@@ -70,7 +70,7 @@ public class Utils {
         return day.isAfter(timePeriod.getFirst().minusDays(1)) && day.isBefore(timePeriod.getSecond().plusDays(1));
     }
 
-    public static boolean isDayInTimePeriod(final LocalDate localDate, final Pair<LocalDate, LocalDate> timePeriod) {
+    public static boolean isDayInTimePeriod(final LocalDate localDate, final TwinPair<LocalDate> timePeriod) {
         return isDayInTimePeriod(localDate.toDateTimeAtStartOfDay(),
             Pair.of(timePeriod.getFirst().toDateTimeAtStartOfDay(), timePeriod.getSecond().toDateTimeAtStartOfDay()));
     }
